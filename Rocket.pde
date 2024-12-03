@@ -31,9 +31,10 @@ class Rocket {
 
   void shouldExplode() {
     
-    // jeg har fjernet frameCount betingelsen og sat yPosition op til 250 for at få eksplosionen længere ned. 
+    // Removed frameCount condition and moved yPosition to 250 to get the explosion furhter down. - ChrisBruhn
     //if (explosionTime < frameCount || yPosition <= 50 || xPosition <= 20) { /* If it is time for the rocket to explode,
-    if (yPosition <= 250 || xPosition <= 20) { /* If it is time for the rocket to explode,
+    if (yPosition <= 250 || xPosition <= 20) { 
+    /*
     defined in the constructor with a random value between 150 and 400.
     Also checks if yPosition is lower than or equal to 50 or if xPosition is equal to
     or lower than 20, and explodes if true, to make sure
