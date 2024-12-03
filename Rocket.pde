@@ -1,4 +1,5 @@
 class Rocket {
+  // Initializes the variable for explosionTime, xPosition, yPosition, diameter, alpha, r, g, b, angle and exploded
   float explosionTime;
   float xPosition, yPosition;
   float diameter;
@@ -7,7 +8,7 @@ class Rocket {
   int angle;
   boolean exploded;
 
-  Rocket() { /* Creates random values for explosionTime, xPosition, yPosition, 
+  Rocket() { /* Declares the random values for explosionTime, xPosition, yPosition, 
   red, green and blue for the color, angle. Sets the diameter from rocket to explosion to 5
   the alpha (transparency) to start off as 255 and the exploded boolean to start off as false
   */
@@ -29,7 +30,12 @@ class Rocket {
   }
 
   void shouldExplode() {
-    if (explosionTime < frameCount) { // If it is time for the rocket to explode, defined in the constructor with a random value between 150 and 400
+    if (explosionTime < frameCount || yPosition <= 50 || xPosition <= 20) { /* If it is time for the rocket to explode, 
+    defined in the constructor with a random value between 150 and 400.
+    Also checks if yPosition is lower than or equal to 50 or if xPosition is equal to
+    or lower than 20, and explodes if true, to make sure
+    that it doesn't go out of the visible screen
+    */
       exploded = true; // Sets exploded to true so it won't explode again
       Explosion explosion = new Explosion(); // Creates a new instance of the Explosion class
       explosion.displayExplosion(r, g, b, alpha, xPosition, yPosition, diameter); // Displays the explosion
