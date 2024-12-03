@@ -4,12 +4,15 @@ int lastRocketTime = 0; // Time since last rocket
 int rocketInterval = 100; // Time between rockets (in milliseconds)
 
 void setup() {
-  size(1000, 1000);
+  size(1000, 800);
 }
 
 void draw() {
   background(20, 30, 40);
+    println(frameCount);
+
   if(millis() - lastRocketTime > rocketInterval) { // Checks if rocketInterval time has passed since last rocket
+  //if(frameCount%rocketInterval == 0){
     rockets.add(new Rocket()); // If true, adds another rocket to create
     lastRocketTime = millis(); // Sets last rocket time to current time
   }
