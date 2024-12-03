@@ -7,7 +7,10 @@ class Rocket {
   int angle;
   boolean exploded;
 
-  Rocket() {
+  Rocket() { /* Creates random values for explosionTime, xPosition, yPosition, 
+  red, green and blue for the color, angle. Sets the diameter from rocket to explosion to 5
+  the alpha (transparency) to start off as 255 and the exploded boolean to start off as false
+  */
     explosionTime = random(150, 400);
     xPosition = random(width);
     yPosition = height;
@@ -20,27 +23,27 @@ class Rocket {
     exploded = false;
   }
 
-  void moveRocket() {
-    xPosition += angle;
-    yPosition -= 4;
+  void moveRocket() { // Moves the rocket
+    xPosition += angle; // Moves its x by the randomly generated value of angle
+    yPosition -= 4; // Moves its y by -4, moving it upward
   }
 
   void shouldExplode() {
-    if (explosionTime < frameCount) {
-      exploded = true;
-      Explosion explosion = new Explosion();
-      explosion.displayExplosion(r, g, b, alpha, xPosition, yPosition, diameter);
-      alpha = max(0, alpha - 15);
-      diameter += 2;
-    } else if (!exploded) {
-      moveRocket();
-      showRocket();
+    if (explosionTime < frameCount) { // If it is time for the rocket to explode, defined in the constructor with a random value between 150 and 400
+      exploded = true; // Sets exploded to true so it won't explode again
+      Explosion explosion = new Explosion(); // Creates a new instance of the Explosion class
+      explosion.displayExplosion(r, g, b, alpha, xPosition, yPosition, diameter); // Displays the explosion
+      alpha = max(0, alpha - 15); // Decreases the alpha by either 15 or setting it to 0
+      diameter += 2; // Increases the diameter by 2
+    } else if (!exploded) { // If it shouldn't explode yet, and hasn't exploded yet
+      moveRocket(); // Move the rocket
+      showRocket(); // Show the rocket, in its new position
     }
   }
 
-  void showRocket() {
-    fill(r, g, b, alpha);
+  void showRocket() { // Function to show the rocket on the screen
+    fill(r, g, b, alpha); // Sets the fill to the color of the rocket
     noStroke();
-    circle(xPosition, yPosition, diameter);
+    circle(xPosition, yPosition, diameter); // Draws the circle at the x and y position with the diameter
   }
 }
