@@ -1,15 +1,19 @@
 ArrayList<Rocket> rockets = new ArrayList<Rocket>(); // Initializes the ArrayList of Rockets
 
+int lastRocketTime = 0; // Time since last rocket
+int rocketInterval = 100; // Time between rockets
+
 void setup() {
   size(1000, 1000);
 }
 
 void draw() {
   background(20, 30, 40);
-  if (frameCount % 10 == 0) { // Checks if the amount of frames divided by 10 has a remainder of 0
+  if(millis() - lastRocketTime > rocketInterval) { // Checks if rocketInterval time has passed since last rocket
     rockets.add(new Rocket()); // If true, adds another rocket to create
+    lastRocketTime = millis(); // Sets last rocket time to current time
   }
-  createRockets();
+  createRockets(); // Runs the function to create the rockets
 }
 
 void createRockets() { // Function to create the rockets
