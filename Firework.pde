@@ -7,6 +7,7 @@ SoundFile file;
 
 void setup() {
   size(1000, 800);
+  file = new SoundFile(this, "firework.mp3");
 }
 
 SoundFile getSoundFile() {
@@ -16,7 +17,6 @@ SoundFile getSoundFile() {
 void draw() {
   background(20, 30, 40);
   println(frameCount);
-  file = new SoundFile(this, "firework.mp3");
 
   if(millis() - lastRocketTime > rocketInterval) { // Checks if rocketInterval time has passed since last rocket
   //if(frameCount%rocketInterval == 0){
