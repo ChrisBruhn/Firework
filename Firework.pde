@@ -1,4 +1,4 @@
-ArrayList<Rocket> rockets = new ArrayList<Rocket>(); // Initializes the ArrayList of Rockets
+ ArrayList<Rocket> rockets = new ArrayList<Rocket>(); // Initializes the ArrayList of Rockets
 
 int lastRocketTime = 0; // Time since last rocket
 int rocketInterval = 100; // Time between rockets (in milliseconds)
