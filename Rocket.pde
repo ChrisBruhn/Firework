@@ -7,12 +7,13 @@ class Rocket {
   int r, g, b;
   int angle;
   boolean exploded;
+  int amountToHit = (int) random(250,455);
 
   Rocket() { /* Declares the random values for explosionTime, xPosition, yPosition, 
   red, green and blue for the color, angle. Sets the diameter from rocket to explosion to 5
   the alpha (transparency) to start off as 255 and the exploded boolean to start off as false
   */
-    explosionTime = random(150, 400);
+    //explosionTime = random(150, 400);
     xPosition = random(width);
     yPosition = height;
     diameter = 5;
@@ -33,7 +34,7 @@ class Rocket {
     
     // Removed frameCount condition and moved yPosition to 250 to get the explosion furhter down. - ChrisBruhn
     //if (explosionTime < frameCount || yPosition <= 50 || xPosition <= 20) { /* If it is time for the rocket to explode,
-    if (yPosition <= 250 || xPosition <= 20) { 
+    if (yPosition <= amountToHit || xPosition <= 20) { 
     /*
     defined in the constructor with a random value between 150 and 400.
     Also checks if yPosition is lower than or equal to 50 or if xPosition is equal to

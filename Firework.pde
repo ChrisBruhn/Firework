@@ -1,15 +1,22 @@
  ArrayList<Rocket> rockets = new ArrayList<Rocket>(); // Initializes the ArrayList of Rockets
 
 int lastRocketTime = 0; // Time since last rocket
-int rocketInterval = 100; // Time between rockets (in milliseconds)
+int rocketInterval = 1000; // Time between rockets (in milliseconds)
+
+SoundFile file;
 
 void setup() {
   size(1000, 800);
+  file = new SoundFile(this, "firework.mp3");
+}
+
+SoundFile getSoundFile() {
+  return file;
 }
 
 void draw() {
   background(20, 30, 40);
-    println(frameCount);
+  println(frameCount);
 
   if(millis() - lastRocketTime > rocketInterval) { // Checks if rocketInterval time has passed since last rocket
   //if(frameCount%rocketInterval == 0){
@@ -26,6 +33,7 @@ void createRockets() { // Function to create the rockets
 
     if (rocket.exploded && rocket.alpha <= 0) {
       rockets.remove(i); // Removes the rocket if it has exploded
+      getSoundFile().stop();
     }
   }
 }
